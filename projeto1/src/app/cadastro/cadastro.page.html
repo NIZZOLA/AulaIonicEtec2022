@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formCadastro">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Descrição</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="fixed">Custo R$</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Venda R$</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Estoque</ion-label>
+        <ion-input type="number" value="0"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-checkbox color="primary"></ion-checkbox>
+        <ion-label position="fixed">Ativo</ion-label>
+      </ion-item>
+
+      <ion-button (click)="ShowPageListagem()">Voltar</ion-button>
+      <ion-button (click)="SalvarCadastro()">Salvar</ion-button>
+
+    </ion-list>
+    </form>
+  
+
+</ion-content>

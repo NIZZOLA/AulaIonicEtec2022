@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listagem</ion-title>
+    <ion-back-button>Voltar2</ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Produtos</h1>
+
+
+  <ion-list>
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>Item 1</ion-label>
+          <ion-label>R$ 0,00</ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option (click)="edit(item)"><ion-icon name="create-outline"></ion-icon></ion-item-option>
+            <ion-item-option (click)="delete(item)"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>Item 2</ion-label>
+          <ion-label>R$ 0,00</ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="edit(item)"><ion-icon name="create-outline"></ion-icon></ion-item-option>
+          <ion-item-option (click)="delete(item)"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  
+  <ion-button (click)="ShowPageHome()">Voltar</ion-button>
+  <ion-button (click)="ShowPageCadastro()">Cadastro</ion-button>
+
+  <ion-button href="http://www.etecitu.com.br">Página da Etec</ion-button>
+
+</ion-content>
