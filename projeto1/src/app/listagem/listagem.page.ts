@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Produtos } from '../models/produtos';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-listagem',
@@ -8,9 +10,20 @@ import { NavController } from '@ionic/angular';
 })
 export class ListagemPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+   listaProdutos : Produtos[] = [];
+   prod : Produtos;
+   
+  constructor(private navCtrl: NavController, private storageService: StorageService) { }
 
   ngOnInit() {
+  }
+
+  async buscarProdutos() {
+    this.listaProdutos = await this.storageService.getAll();
+  }
+
+  ionViewDidEnter() {
+    this.buscarProdutos();
   }
 
   ShowPageHome() {
@@ -21,12 +34,21 @@ export class ListagemPage implements OnInit {
     this.navCtrl.navigateForward('cadastro');
   }
 
-  edit(item) {
-    this.navCtrl.navigateForward('cadastro');
+  async edit(id) {
+    console.log("Edit:" + id);
+
+    this.prod  = await this.storageService.get(id.toString());
+
+    alert('Id:' + this.prod.id + '\nDescricao:' + this.prod.descricao + '\n Custo:' + this.prod.custo + '\n Preço:' + this.prod.venda +
+    '\nEstoque:' + this.prod.estoque + " \nAtivo:" + this.prod.ativo );
+    
+    //this.navCtrl.navigateForward('cadastro');
   }
 
-  delete(item) {
-    console.log(item);
+  async delete(id) {
+    //console.log("Delete:" + id);
+    await this.storageService.remove(id);
+    this.buscarProdutos();
   }
 
 }
